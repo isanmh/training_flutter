@@ -1,0 +1,9 @@
+Ektensi Flutter :
+- Flutter
+- dart
+- Auto Import
+- CodeSnap
+- GitHub Copilot Chat
+- Path Intellisense
+- Prettier - Code formatter
+- vscode-icons
