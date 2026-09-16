@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/dasar/dasar_page.dart';
 import 'package:myapp/dasar/menu_page.dart';
+import 'package:myapp/views/chatty_page.dart';
 
 class RootPage extends StatefulWidget {
   const new({super.key});
@@ -14,7 +15,7 @@ class _RootPageState extends State<RootPage> {
   int currentPage = 0;
 
   // list widget untuk navbar
-  List<Widget> pages = [MenuPage(), DasarPage(), Text("Profile Page")];
+  List<Widget> pages = [MenuPage(), DasarPage(), ChattyPage()];
 
   @override
   Widget build(BuildContext context) {
