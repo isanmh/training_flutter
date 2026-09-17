@@ -13,12 +13,14 @@ class ChattyPage extends StatefulWidget {
 class _ChattyPageState extends State<ChattyPage> {
   // tampung data chatty
   List<ChattyModel> chatList = [];
+  List<ChattyModel> groupList = [];
 
   @override
   void initState() {
     super.initState();
     setState(() {
       chatList = ChattyModel.chatList();
+      groupList = ChattyModel.groupList();
     });
   }
 
@@ -26,6 +28,13 @@ class _ChattyPageState extends State<ChattyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: blueColor,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: greenColor,
+        child: Icon(Icons.add, size: 28, color: whiteColor),
+        shape: CircleBorder(),
+      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Center(
@@ -84,6 +93,22 @@ class _ChattyPageState extends State<ChattyPage> {
                         ),
                       SizedBox(height: 30),
                       Text("Groups", style: tilteTextStyle),
+                      if (groupList.isEmpty)
+                        Center(
+                          child: Text(
+                            "No chat available",
+                            style: subtitleTextStyle,
+                          ),
+                        ),
+                      for (var data in groupList)
+                        ChatTile(
+                          imageUrl: data.imageUrl,
+                          name: data.name,
+                          message: data.message,
+                          time: data.time,
+                          isRead: data.isRead,
+                        ),
+                      SizedBox(height: 150),
                     ],
                   ),
                 ),

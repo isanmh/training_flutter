@@ -33,7 +33,9 @@ class ChatTile extends StatelessWidget {
                 Text(name, style: tilteTextStyle),
                 Text(
                   message,
-                  style: subtitleTextStyle,
+                  style: isRead
+                      ? subtitleTextStyle
+                      : subtitleTextStyle.copyWith(color: greenColor),
                   overflow: TextOverflow.ellipsis,
                 ),
               ],
