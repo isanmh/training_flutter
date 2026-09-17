@@ -49,10 +49,11 @@ class ChattyPage extends StatelessWidget {
                     children: [
                       Text("Friends", style: tilteTextStyle),
                       // widget terpisah chattile
-                      for (int i = 0; i < 2; i++) ChatTile(),
+                      // for (int i = 0; i < 2; i++) ChatTile(),
+                      ChatTile(),
                       SizedBox(height: 30),
                       Text("Groups", style: tilteTextStyle),
-                      for (int i = 0; i < 5; i++) ChatTile(),
+                      // for (int i = 0; i < 5; i++) ChatTile(),
                     ],
                   ),
                 ),

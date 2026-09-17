@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: "Flutter Demo",
       // routes untuk navigasi halaman
       routes: {
-        '/': (context) => RootPage(),
+        '/': (context) => ChattyPage(),
         '/dasar': (context) => ChattyPage(),
         '/root': (context) => RootPage(),
       },
