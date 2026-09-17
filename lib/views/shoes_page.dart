@@ -49,11 +49,100 @@ class ShoesPage extends StatelessWidget {
     );
   }
 
+  // categories
+  Widget categories() {
+    return Container(
+      padding: EdgeInsets.only(left: defaultMargin),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            Container(
+              margin: EdgeInsets.only(right: 16),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              decoration: BoxDecoration(
+                color: primaryColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                "All Shoes",
+                style: primaryText.copyWith(fontSize: 13, fontWeight: medium),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 16),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: secondaryTextColor),
+              ),
+              child: Text(
+                "Running",
+                style: primaryText.copyWith(fontSize: 13, fontWeight: medium),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 16),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: secondaryTextColor),
+              ),
+              child: Text(
+                "Training",
+                style: primaryText.copyWith(fontSize: 13, fontWeight: medium),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 16),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: secondaryTextColor),
+              ),
+              child: Text(
+                "Basketball",
+                style: primaryText.copyWith(fontSize: 13, fontWeight: medium),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 16),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: secondaryTextColor),
+              ),
+              child: Text(
+                "Running",
+                style: primaryText.copyWith(fontSize: 13, fontWeight: medium),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // tulisan product popular
+  Widget TitleProduct() {
+    return Container(
+      margin: EdgeInsets.only(left: defaultMargin, top: defaultMargin),
+      child: Text(
+        "Popular Product",
+        style: primaryText.copyWith(fontSize: 22, fontWeight: semiBold),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColor,
-      body: ListView(children: [header()]),
+      body: ListView(children: [header(), categories(), TitleProduct()]),
     );
   }
 }

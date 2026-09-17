@@ -12,3 +12,8 @@ Ektensi Flutter :
 list object grup -> 
 constructor List grup ->
 buat lopp forech -> 
+
+cara install dependensi di flutter :
+- flutter pub add nama_dependensi :
+    flutter pub add http
+- flutter pub get
