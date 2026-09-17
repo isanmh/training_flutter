@@ -17,3 +17,10 @@ cara install dependensi di flutter :
 - flutter pub add nama_dependensi :
     flutter pub add http
 - flutter pub get
+
+
+cara fetch data dari internet :
+- flutter pub add http
+- model
+- sevice -> buat class untuk fetch data dari internet
+- view/page -> panggil service untuk fetch data dari internet

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/dasar/dasar_page.dart';
 import 'package:myapp/dasar/menu_page.dart';
 import 'package:myapp/dasar/root_page.dart';
+import 'package:myapp/views/album_page.dart';
 import 'package:myapp/views/chatty_page.dart';
 import 'package:myapp/views/shoes_page.dart';
 
@@ -21,13 +22,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Flutter Demo",
       // routes untuk navigasi halaman
-      routes: {
-        '/': (context) => RootPage(),
-        '/dasar': (context) => DasarPage(),
-        '/root': (context) => RootPage(),
-      },
+      // routes: {
+      //   '/': (context) => RootPage(),
+      //   '/dasar': (context) => DasarPage(),
+      //   '/root': (context) => RootPage(),
+      // },
 
-      // home: ShoesPage(),
+      home: AlbumPage(),
     );
   }
 }
