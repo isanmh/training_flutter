@@ -2,7 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:myapp/slicing/theme_shoes.dart';
 
 class ProductTile extends StatelessWidget {
-  const new({super.key});
+  final String imageUrl;
+  final String category;
+  final String title;
+  final String price;
+
+  const ProductTile({
+    super.key,
+    required this.imageUrl,
+    required this.category,
+    required this.title,
+    required this.price,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +24,7 @@ class ProductTile extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.asset(
-              "assets/images/shoes4.png",
+              imageUrl,
               fit: BoxFit.cover,
               width: 120,
               height: 120,
@@ -24,7 +35,7 @@ class ProductTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Football",
+                category,
                 style: subText.copyWith(
                   color: subTextColor,
                   fontSize: 12,
@@ -33,7 +44,7 @@ class ProductTile extends StatelessWidget {
               ),
               SizedBox(height: 6),
               Text(
-                "Predator 20.3 Firm Ground",
+                title,
                 style: subText.copyWith(
                   color: primaryTextColor,
                   fontSize: 16,
@@ -42,7 +53,7 @@ class ProductTile extends StatelessWidget {
               ),
               SizedBox(height: 6),
               Text(
-                "\$68,47",
+                price,
                 style: subText.copyWith(
                   color: priceColor,
                   fontSize: 14,

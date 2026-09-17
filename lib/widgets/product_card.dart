@@ -2,7 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:myapp/slicing/theme_shoes.dart';
 
 class ProductCard extends StatelessWidget {
-  const new({super.key});
+  final String imageUrl;
+  final String category;
+  final String title;
+  final String price;
+
+  const ProductCard({
+    super.key,
+    required this.imageUrl,
+    required this.category,
+    required this.title,
+    required this.price,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,24 +29,19 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: defaultMargin),
-          Image.asset(
-            "assets/images/shoes1.png",
-            fit: BoxFit.cover,
-            width: 215,
-            height: 120,
-          ),
+          Image.asset(imageUrl, fit: BoxFit.cover, width: 215, height: 120),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "hiking",
+                  category,
                   style: subText.copyWith(fontSize: 12, fontWeight: regular),
                 ),
                 SizedBox(height: 6),
                 Text(
-                  "TERREX URBAN LOW GTX",
+                  title,
                   style: secondaryText.copyWith(
                     fontSize: 18,
                     fontWeight: semiBold,
@@ -44,7 +50,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 SizedBox(height: 6),
                 Text(
-                  "\$143,98",
+                  price,
                   style: secondaryText.copyWith(
                     fontSize: 14,
                     color: priceColor,

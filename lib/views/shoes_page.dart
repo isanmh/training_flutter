@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/models/product_model.dart';
 import 'package:myapp/slicing/theme_shoes.dart';
 import 'package:myapp/widgets/product_card.dart';
 import 'package:myapp/widgets/product_tile.dart';
 
-class ShoesPage extends StatelessWidget {
+class ShoesPage extends StatefulWidget {
   const new({super.key});
+
+  @override
+  State<ShoesPage> createState() => _ShoesPageState();
+}
+
+class _ShoesPageState extends State<ShoesPage> {
+  // variable product
+  List<ProductModel> products = ProductModel.popularProducts;
+  List<ProductModel> newArrivals = ProductModel.newArrivals;
 
   // widget header
   Widget header() {
@@ -146,7 +156,17 @@ class ShoesPage extends StatelessWidget {
       margin: EdgeInsets.only(top: 14, left: defaultMargin),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(children: [ProductCard(), ProductCard(), ProductCard()]),
+        child: Row(
+          children: [
+            for (var product in products)
+              ProductCard(
+                imageUrl: product.imageUrl,
+                category: product.category,
+                title: product.title,
+                price: product.price,
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -168,7 +188,18 @@ class ShoesPage extends StatelessWidget {
       margin: EdgeInsets.only(top: 14, left: defaultMargin),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Column(children: [ProductTile(), ProductTile(), ProductTile()]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (var data in newArrivals)
+              ProductTile(
+                imageUrl: data.imageUrl,
+                category: data.category,
+                title: data.title,
+                price: data.price,
+              ),
+          ],
+        ),
       ),
     );
   }
