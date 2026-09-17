@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/slicing/theme_shoes.dart';
+import 'package:myapp/widgets/product_card.dart';
+import 'package:myapp/widgets/product_tile.dart';
 
 class ShoesPage extends StatelessWidget {
   const new({super.key});
@@ -128,7 +130,7 @@ class ShoesPage extends StatelessWidget {
   }
 
   // tulisan product popular
-  Widget TitleProduct() {
+  Widget titleProduct() {
     return Container(
       margin: EdgeInsets.only(left: defaultMargin, top: defaultMargin),
       child: Text(
@@ -138,11 +140,53 @@ class ShoesPage extends StatelessWidget {
     );
   }
 
+  // Card Product
+  Widget popularProduct() {
+    return Container(
+      margin: EdgeInsets.only(top: 14, left: defaultMargin),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(children: [ProductCard(), ProductCard(), ProductCard()]),
+      ),
+    );
+  }
+
+  // tulisan product popular
+  Widget titleArrivals() {
+    return Container(
+      margin: EdgeInsets.only(left: defaultMargin, top: defaultMargin),
+      child: Text(
+        "New Arrivals",
+        style: primaryText.copyWith(fontSize: 22, fontWeight: semiBold),
+      ),
+    );
+  }
+
+  // Product Tile
+  Widget productTile() {
+    return Container(
+      margin: EdgeInsets.only(top: 14, left: defaultMargin),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(children: [ProductTile()]),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: bgColor,
-      body: ListView(children: [header(), categories(), TitleProduct()]),
+      body: ListView(
+        children: [
+          header(),
+          categories(),
+          titleProduct(),
+          popularProduct(),
+          titleArrivals(),
+          productTile(),
+        ],
+      ),
     );
   }
 }
