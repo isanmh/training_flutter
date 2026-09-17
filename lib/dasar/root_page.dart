@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/dasar/dasar_page.dart';
 import 'package:myapp/dasar/menu_page.dart';
 import 'package:myapp/views/chatty_page.dart';
+import 'package:myapp/views/shoes_page.dart';
 
 class RootPage extends StatefulWidget {
   const new({super.key});
@@ -15,24 +16,24 @@ class _RootPageState extends State<RootPage> {
   int currentPage = 0;
 
   // list widget untuk navbar
-  List<Widget> pages = [MenuPage(), DasarPage(), ChattyPage()];
+  List<Widget> pages = [ChattyPage(), ShoesPage(), MenuPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Root Page'),
-        backgroundColor: Colors.purple,
-        foregroundColor: Colors.white,
-        // automaticallyImplyLeading: false,
-      ),
-      drawer: Drawer(),
-      endDrawer: Drawer(),
+      // appBar: AppBar(
+      //   title: const Text('Root Page'),
+      //   backgroundColor: Colors.purple,
+      //   foregroundColor: Colors.white,
+      //   // automaticallyImplyLeading: false,
+      // ),
+      // drawer: Drawer(),
+      // endDrawer: Drawer(),
       // Bottom Navigation Bar
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-          NavigationDestination(icon: Icon(Icons.search), label: "Search"),
+          NavigationDestination(icon: Icon(Icons.chat), label: "Shoes"),
           NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
         ],
         onDestinationSelected: (index) {

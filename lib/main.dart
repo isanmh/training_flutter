@@ -21,13 +21,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Flutter Demo",
       // routes untuk navigasi halaman
-      // routes: {
-      //   '/': (context) => ChattyPage(),
-      //   '/dasar': (context) => ChattyPage(),
-      //   '/root': (context) => RootPage(),
-      // },
+      routes: {
+        '/': (context) => RootPage(),
+        '/dasar': (context) => DasarPage(),
+        '/root': (context) => RootPage(),
+      },
 
-      home: ShoesPage(),
+      // home: ShoesPage(),
     );
   }
 }
