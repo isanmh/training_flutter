@@ -7,3 +7,8 @@ Ektensi Flutter :
 - Path Intellisense
 - Prettier - Code formatter
 - vscode-icons
+
+- Model :
+list object grup -> 
+constructor List grup ->
+buat lopp forech -> 

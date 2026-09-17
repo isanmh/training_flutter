@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/models/chatty_model.dart';
 import 'package:myapp/slicing/theme_chatty.dart';
 import 'package:myapp/widgets/chat_tile.dart';
 
-class ChattyPage extends StatelessWidget {
+class ChattyPage extends StatefulWidget {
   const new({super.key});
+
+  @override
+  State<ChattyPage> createState() => _ChattyPageState();
+}
+
+class _ChattyPageState extends State<ChattyPage> {
+  // tampung data chatty
+  List<ChattyModel> chatList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      chatList = ChattyModel.chatList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +67,23 @@ class ChattyPage extends StatelessWidget {
                       Text("Friends", style: tilteTextStyle),
                       // widget terpisah chattile
                       // for (int i = 0; i < 2; i++) ChatTile(),
-                      ChatTile(),
+                      if (chatList.isEmpty)
+                        Center(
+                          child: Text(
+                            "No chat available",
+                            style: subtitleTextStyle,
+                          ),
+                        ),
+                      for (var chat in chatList)
+                        ChatTile(
+                          imageUrl: chat.imageUrl,
+                          name: chat.name,
+                          message: chat.message,
+                          time: chat.time,
+                          isRead: chat.isRead,
+                        ),
                       SizedBox(height: 30),
                       Text("Groups", style: tilteTextStyle),
-                      // for (int i = 0; i < 5; i++) ChatTile(),
                     ],
                   ),
                 ),
