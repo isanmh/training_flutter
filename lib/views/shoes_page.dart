@@ -168,7 +168,7 @@ class ShoesPage extends StatelessWidget {
       margin: EdgeInsets.only(top: 14, left: defaultMargin),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(children: [ProductTile()]),
+        child: Column(children: [ProductTile(), ProductTile(), ProductTile()]),
       ),
     );
   }
