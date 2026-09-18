@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/notes_model.dart';
 import 'package:myapp/services/notes_service.dart';
+import 'package:myapp/utils/constant.dart';
 
 class NotesPage extends StatefulWidget {
   const NotesPage({super.key});
@@ -83,9 +84,14 @@ class _NotesPageState extends State<NotesPage> {
                               child: Text("Cancel"),
                             ),
                             TextButton(
-                              onPressed: () {
-                                print("delete");
+                              onPressed: () async {
+                                // delete service
+                                await notesService.deleteData(
+                                  _listNotes[index].id,
+                                );
                                 Navigator.pop(context);
+                                show();
+                                showSnackBar(context, "berhasil dihapus");
                               },
                               child: Text("Delete"),
                             ),
