@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/dasar/dasar_page.dart';
 import 'package:myapp/dasar/menu_page.dart';
 import 'package:myapp/views/chatty_page.dart';
+import 'package:myapp/views/notes_module/notes_page.dart';
 import 'package:myapp/views/shoes_page.dart';
 
 class RootPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _RootPageState extends State<RootPage> {
   int currentPage = 0;
 
   // list widget untuk navbar
-  List<Widget> pages = [ChattyPage(), ShoesPage(), MenuPage()];
+  List<Widget> pages = [NotesPage(), ChattyPage(), ShoesPage(), MenuPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class _RootPageState extends State<RootPage> {
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+          NavigationDestination(icon: Icon(Icons.note), label: "Notes"),
           NavigationDestination(icon: Icon(Icons.chat), label: "Shoes"),
           NavigationDestination(icon: Icon(Icons.person), label: "Profile"),
         ],

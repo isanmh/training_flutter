@@ -79,7 +79,11 @@ class _EditNoteState extends State<EditNote> {
                     );
                     if (res) {
                       showSnackBar(context, "Berhasil update data");
-                      Navigator.pushNamed(context, "/notes");
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        "/",
+                        (route) => false,
+                      );
                     } else {
                       showSnackBar(context, "Gagal update data");
                     }

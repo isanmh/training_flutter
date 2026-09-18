@@ -69,7 +69,11 @@ class _AddNoteState extends State<AddNote> {
                     );
                     if (res) {
                       showSnackBar(context, "Berhasil tambah data");
-                      Navigator.pushNamed(context, "/notes");
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        "/",
+                        (route) => false,
+                      );
                     } else {
                       showSnackBar(context, "Gagal tambah data");
                     }
