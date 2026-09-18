@@ -65,4 +65,15 @@ class ChattyModel {
       ),
     ];
   }
+
+  // pemanggilan data dari internet
+  factory ChattyModel.fromJson(Map<String, dynamic> json) {
+    return ChattyModel(
+      name: json['first_name'] + " " + json['last_name'],
+      imageUrl: json['avatar'],
+      message: json['email'],
+      time: "Now",
+      isRead: false,
+    );
+  }
 }

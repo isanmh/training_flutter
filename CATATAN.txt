@@ -24,3 +24,6 @@ cara fetch data dari internet :
 - model
 - sevice -> buat class untuk fetch data dari internet
 - view/page -> panggil service untuk fetch data dari internet
+
+alur pemangginan data dari internet :
+- Model -> Service -> View/Page
