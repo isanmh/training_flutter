@@ -4,9 +4,6 @@ import 'package:myapp/dasar/menu_page.dart';
 import 'package:myapp/dasar/root_page.dart';
 import 'package:myapp/views/album_page.dart';
 import 'package:myapp/views/chatty_page.dart';
-import 'package:myapp/views/notes_module/add_note.dart';
-import 'package:myapp/views/notes_module/edit_note.dart';
-import 'package:myapp/views/notes_module/notes_page.dart';
 import 'package:myapp/views/shoes_page.dart';
 
 void main() {
