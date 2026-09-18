@@ -31,6 +31,13 @@ class _ChattyPageState extends State<ChattyPage> {
       });
     });
 
+    chattyService.getGroupList().then((res) {
+      setState(() {
+        groupList = res;
+        isLoading = false;
+      });
+    });
+
     // setState(() {
     //   chatList = ChattyModel.chatList();
     //   groupList = ChattyModel.groupList();
@@ -43,7 +50,9 @@ class _ChattyPageState extends State<ChattyPage> {
       backgroundColor: blueColor,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/notes');
+        },
         backgroundColor: greenColor,
         child: Icon(Icons.add, size: 28, color: whiteColor),
         shape: CircleBorder(),
@@ -91,10 +100,7 @@ class _ChattyPageState extends State<ChattyPage> {
                       // for (int i = 0; i < 2; i++) ChatTile(),
                       if (chatList.isEmpty)
                         Center(
-                          child: Text(
-                            "No chat available",
-                            style: subtitleTextStyle,
-                          ),
+                          child: CircularProgressIndicator(color: greenColor),
                         ),
                       for (var chat in chatList)
                         ChatTile(

@@ -28,4 +28,23 @@ class ChattyService {
 
     throw Exception('Gagal mengambil data Chatty');
   }
+
+  Future<List<ChattyModel>> getGroupList() async {
+    // buat url
+    final response = await http.get(
+      Uri.parse(productURL),
+      headers: {'Content-Type': 'application/json'},
+    );
+    print("Status Code : ${response.statusCode}");
+    print("body : ${response.body}");
+    // jika data 200
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body);
+      final List<dynamic> data = jsonData['products'];
+
+      return data.map((json) => ChattyModel.fromJsonGroup(json)).toList();
+    }
+
+    throw Exception('Gagal mengambil data Group');
+  }
 }

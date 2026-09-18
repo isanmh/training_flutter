@@ -27,3 +27,19 @@ cara fetch data dari internet :
 
 alur pemangginan data dari internet :
 - Model -> Service -> View/Page
+
+ name = title
+ imageUrl thumbnail
+ message = description
+ time = "11:00"
+ isRead = false
+
+"products": [
+    {
+        "id": 1,
+        "title": "Essence Mascara Lash Princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara ",
+        "category": "beauty",
+        "price": 9.99,
+    }
+]

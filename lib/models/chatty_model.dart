@@ -76,4 +76,14 @@ class ChattyModel {
       isRead: false,
     );
   }
+
+  factory ChattyModel.fromJsonGroup(Map<String, dynamic> json) {
+    return ChattyModel(
+      name: json['title'],
+      imageUrl: json['thumbnail'],
+      message: json['description'],
+      time: "Now",
+      isRead: false,
+    );
+  }
 }
