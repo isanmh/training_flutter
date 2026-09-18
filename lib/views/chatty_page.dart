@@ -28,7 +28,7 @@ class _ChattyPageState extends State<ChattyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: blueColor,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: greenColor,
