@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/models/chatty_model.dart';
+import 'package:myapp/services/chatty_service.dart';
+
 import 'package:myapp/slicing/theme_chatty.dart';
 import 'package:myapp/widgets/chat_tile.dart';
 
@@ -14,14 +16,25 @@ class _ChattyPageState extends State<ChattyPage> {
   // tampung data chatty
   List<ChattyModel> chatList = [];
   List<ChattyModel> groupList = [];
+  bool isLoading = true;
+
+  // panggil service
+  final ChattyService chattyService = ChattyService();
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      chatList = ChattyModel.chatList();
-      groupList = ChattyModel.groupList();
+    chattyService.getChatList().then((res) {
+      setState(() {
+        chatList = res;
+        isLoading = false;
+      });
     });
+
+    // setState(() {
+    //   chatList = ChattyModel.chatList();
+    //   groupList = ChattyModel.groupList();
+    // });
   }
 
   @override

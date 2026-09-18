@@ -24,7 +24,8 @@ class ChatTile extends StatelessWidget {
       padding: EdgeInsets.only(top: 16),
       child: Row(
         children: [
-          Image.asset(imageUrl, width: 55, fit: BoxFit.cover),
+          // Image.asset(imageUrl, width: 55, fit: BoxFit.cover),
+          Image.network(imageUrl, width: 55, fit: BoxFit.cover),
           SizedBox(width: 12),
           Expanded(
             child: Column(
