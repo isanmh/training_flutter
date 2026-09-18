@@ -54,7 +54,15 @@ class _NotesPageState extends State<NotesPage> {
             return Card(
               child: ListTile(
                 onTap: () {
-                  Navigator.pushNamed(context, "/edit");
+                  Navigator.pushNamed(
+                    context,
+                    "/edit",
+                    arguments: [
+                      _listNotes[index].id,
+                      _listNotes[index].title,
+                      _listNotes[index].content,
+                    ],
+                  );
                 },
                 title: Text(
                   _listNotes[index].title,

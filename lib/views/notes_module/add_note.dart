@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/services/notes_service.dart';
+import 'package:myapp/utils/constant.dart';
 
 class AddNote extends StatefulWidget {
   const AddNote({super.key});
@@ -13,6 +15,8 @@ class _AddNoteState extends State<AddNote> {
   // validasi
   bool validateTitle = false;
   bool validateContent = false;
+
+  NotesService notesService = NotesService();
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +62,18 @@ class _AddNoteState extends State<AddNote> {
                         : validateContent = false;
                   });
                   // validasi jika benar
-                  print("Title: ${titleController.text}");
-                  print("Content: ${contentController.text}");
+                  if (!validateTitle && !validateContent) {
+                    bool res = await notesService.addData(
+                      titleController.text,
+                      contentController.text,
+                    );
+                    if (res) {
+                      showSnackBar(context, "Berhasil tambah data");
+                      Navigator.pushNamed(context, "/notes");
+                    } else {
+                      showSnackBar(context, "Gagal tambah data");
+                    }
+                  }
                 },
                 child: Text("Add Note"),
               ),

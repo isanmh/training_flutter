@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/services/notes_service.dart';
+import 'package:myapp/utils/constant.dart';
 
 class EditNote extends StatefulWidget {
   const EditNote({super.key});
@@ -14,8 +16,19 @@ class _EditNoteState extends State<EditNote> {
   bool validateTitle = false;
   bool validateContent = false;
 
+  NotesService notesService = NotesService();
+
   @override
   Widget build(BuildContext context) {
+    // ambil data dari arguments
+    final args = ModalRoute.of(context)!.settings.arguments as List<String>;
+
+    // jika args ada
+    if (args.isNotEmpty) {
+      titleController.text = args[1];
+      contentController.text = args[2];
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Update Note"),
@@ -58,8 +71,19 @@ class _EditNoteState extends State<EditNote> {
                         : validateContent = false;
                   });
                   // validasi jika benar
-                  print("Title: ${titleController.text}");
-                  print("Content: ${contentController.text}");
+                  if (!validateTitle && !validateContent) {
+                    bool res = await notesService.updateData(
+                      args[0],
+                      titleController.text,
+                      contentController.text,
+                    );
+                    if (res) {
+                      showSnackBar(context, "Berhasil update data");
+                      Navigator.pushNamed(context, "/notes");
+                    } else {
+                      showSnackBar(context, "Gagal update data");
+                    }
+                  }
                 },
                 child: Text("Update Note"),
               ),
