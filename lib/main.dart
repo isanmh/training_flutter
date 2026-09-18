@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/dasar/dasar_page.dart';
 import 'package:myapp/dasar/menu_page.dart';
 import 'package:myapp/dasar/root_page.dart';
+import 'package:myapp/views/ai_gen.dart';
 import 'package:myapp/views/album_page.dart';
 import 'package:myapp/views/chatty_page.dart';
 import 'package:myapp/views/notes_module/add_note.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: "Flutter Demo",
       // routes untuk navigasi halaman
       routes: {
-        '/': (context) => RootPage(),
+        '/': (context) => AiGen(),
         '/dasar': (context) => DasarPage(),
         '/root': (context) => RootPage(),
 

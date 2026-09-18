@@ -344,6 +344,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.2"
+  stability_image_generation:
+    dependency: "direct main"
+    description:
+      name: stability_image_generation
+      sha256: b6bd806ec7966a1872c1750ab3a6fa0e70a7081dee4fd03be5019baff46f29ca
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   stack_trace:
     dependency: transitive
     description:
